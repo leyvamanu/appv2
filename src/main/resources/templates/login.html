@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/head::head"></head>
+    <body>
+        <div class="uk-card uk-card-default uk-position-center">
+            <div class="uk-card-header uk-background-muted">
+                <div class="uk-width-expand uk-t">
+                    <h1 class="logo uk-heading-medium">DiscoverMe</h1>
+                </div>
+            </div>
+            <div class="uk-card-body">
+                <form action="#" th:action="@{/login}" th:object="${login}" method="POST">
+                    <fieldset class="uk-fieldset">
+                        <legend class="uk-legend">Acceso clientes</legend>
+                            <div class="uk-margin">
+                                <div class="uk-inline uk-width-1-1">
+                                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                    <input class="uk-input" id="usuario" name="usuario" type="text" th:field="*{usuario}" placeholder="Usuario"/>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <div class="uk-inline uk-width-1-1">
+                                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                    <input class="uk-input" id="password" name="password" type="password" th:field="*{password}" placeholder="Contraseña"/>
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit"> Acceder</button>
+                            </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="uk-card-footer uk-background-muted">
+                <a href="#" class="uk-button uk-button-text">Olvidaste tu password?</a>
+            </div>
+        </div>        
+        <div class="uk-position-bottom">
+            <footer th:replace="fragments/footer::footer"></footer>
+        </div>
+    </body>
+</html>

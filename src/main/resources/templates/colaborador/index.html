@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="fragments/head::head"></head>
+    <body>
+        <nav th:replace="fragments/nav::nav"></nav>
+        <h1>COLABORADOR</h1>
+        <p th:text="${#session.getAttribute('usuario').id}"></p>
+        <p th:text="${#session.getAttribute('usuario').nombre}"></p>
+        <p th:text="${#session.getAttribute('usuario').password}"></p>
+        <p th:text="${#session.getAttribute('usuario').rol.nombre}"></p>
+        <div class="uk-position-bottom">
+            <footer th:replace="fragments/footer::footer"></footer>
+        </div>
+    </body>
+</html>

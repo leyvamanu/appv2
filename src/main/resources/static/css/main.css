@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Noto+Serif');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Courgette|Varela+Round');
+
+.logo {
+    color: rgba(85, 153, 194, 1);
+    font-family: 'Noto Serif', serif;
+    font-family: 'Kaushan Script', cursive;
+    text-decoration:none;
+    margin-right: 30px;
+    padding-right: 10px
+}
+
+.img-header{
+    background-image: url('../image/gran-experiencia.jpg');
+}
+
+.img-section-datos{
+    background-image: url('../image/datos.jpg');
+}
+
+.copyright {
+    font-size: 90%;
+    line-height: 40px;
+    text-transform: none;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+.icon-servicos{
+    color: #3596ff;
+}

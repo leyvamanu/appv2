@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+    <head  th:replace="fragments/head::head"></head>
+    <body>
+        <header th:replace="fragments/header::header"></header>
+
+        <!-- Servicios -->
+        <section class="uk-section uk-section-default uk-padding-medium-top uk-padding-medium-bottom" id="servicios">
+            <div class="uk-container uk-text-center">
+                <h2 class="uk-text-bold">Servicios</h2>
+                <h3 class="uk-text-italic uk-text-muted">Con nuestra aplicación, conseguirás aumentar la fidelización de tu cliente a través de nuestros servicios.</h3>
+                <div class="uk-child-width-1-3" uk-grid>
+                    <div>
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
+                            <i class="fas fa-umbrella-beach fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="uk-text-bold">Experiencias</h4>
+                        <p class="uk-text-muted">Muestra a tu huésped todo lo que puede descubrir en tu ciudad dándole la información que realmente creas oportuna.</p>
+                    </div>
+                    <div>
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
+                            <i class="fas fa-ticket-alt fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="uk-text-bold">Ventas</h4>
+                        <p class="uk-text-muted">Aumenta las ventas a través de la aplicación con técnicas de up-selling y cross-selling.</p>
+                    </div>
+                    <div>
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
+                            <i class="far fa-handshake fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="uk-text-bold">Colaboración</h4>
+                        <p class="uk-text-muted">Trabaja de manera colaborativa con empresas de tu entorno para ofrecerle lo mejor a tu huésped.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Datos -->
+        <section class="uk-section uk-section-default img-section-datos uk-height-large uk-background-cover uk-light uk-padding-medium-top uk-padding-medium-bottom" uk-parallax="bgy: -200" id="datos">
+            <div class="uk-container">
+                <div class="uk-width-1-2 uk-text-center uk-margin-auto uk-margin-auto-vertical" uk-parallax="opacity: 0,1; y: 100,0; viewport: 0.5">
+                    <h2 class="uk-text-bold">Nuestros datos</h2>
+                    <div class="uk-child-width-1-3" uk-grid>
+                        <div>
+                            <p class="text-muted">123123</p>
+                            <h4 class="uk-text-bold">Experiencias</h4>
+                            <p class="text-muted">Cantidad de experiencias que disponemos.</p>
+                        </div>
+                        <div>
+                            <p class="text-muted">324244</p>
+                            <h4 class="uk-text-bold">Apps descargadas</h4>
+                            <p class="text-muted">Número de descargas hechas por los huéspedes.</p>
+                        </div>
+                        <div>
+                            <p class="text-muted">123</p>
+                            <h4 class="uk-text-bold">Colaboradores</h4>
+                            <p class="text-muted">Total de colaboradores que se benefician de nuestros servicios.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo -->
+        <section class="uk-section uk-background-secondary uk-padding-medium-top uk-padding-medium-bottom" id="demo">
+            <div class="uk-container uk-text-center uk-margin-medium-bottom">
+                <div class="uk-light">
+                    <h2 class="uk-text-bold">Demo</h2>
+                    <h3 class="uk-text-italic uk-text-muted">Prueba los diferentes perfiles de usuario que tiene nuestra aplicación.</h3>
+                </div>
+                <div class="uk-child-width-1-3" uk-grid>
+                    <div class="uk-text-center">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <a th:href="@{/inicio?rol=camarero}">
+                                <img th:src="@{/image/camarero.jpg}" alt="camarero">
+                                <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
+                                    <p class="uk-h4 uk-margin-remove ">Camarero</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="uk-text-center">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <a th:href="@{/inicio?rol=colaborador}">
+                                <img th:src="@{/image/colaborador.jpg}" alt="colaborador">
+                                <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
+                                    <p class="uk-h4 uk-margin-remove">Colaborador</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="uk-text-center">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <a th:href="@{/inicio?rol=director}">
+                                <img th:src="@{/image/director.jpg}" alt="director">
+                                <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
+                                    <p class="uk-h4 uk-margin-remove">Director</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="uk-text-center">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <a th:href="@{/inicio?rol=huesped}">
+                                <img th:src="@{/image/huesped.jpg}" alt="huesped">
+                                <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
+                                    <p class="uk-h4 uk-margin-remove">Huesped</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="uk-text-center">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <a th:href="@{/inicio?rol=recepcionista}">
+                                <img th:src="@{/image/recepcionista.jpg}" alt="recepcionista">
+                                <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
+                                    <p class="uk-h4 uk-margin-remove">Recepcionista</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="uk-text-center">
+                        <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                            <a th:href="@{/inicio}">
+                                <img th:src="@{/image/discoverme.jpg}" alt="discoverme">
+                                <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
+                                    <p class="uk-h4 uk-margin-remove">DiscoverMe</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section class="uk-section uk-section-default uk-background-muted uk-padding-medium-top uk-padding-medium-bottom" id="contacto">
+            <div class="uk-container uk-container-xsmall">
+                <div class="uk-text-center">
+                    <h2>Contáctanos</h2>
+                    <h3>Mándanos un mensaje y nos pondremos en contacto contigo.</h3>
+                </div>
+                <form action="#" th:action="@{/enviarEmail}" th:object="${email}" method="post">
+                    <div class="uk-margin">
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="nombre" type="text" th:field="*{nombre}" placeholder="Nombre de la empresa o particular..."/>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="direccion" type="text" th:field="*{direccion}" placeholder="E-mail..."/>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-form-controls">
+                            <input class="uk-input" id="telefono" type="text" th:field="*{telefono}" placeholder="Telefono..."/>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <textarea class="uk-textarea" rows="5" placeholder="Escribe tu mensaje..." th:field="*{mensaje}"></textarea>
+                    </div>
+                    <button class="uk-button uk-button-primary uk-button-large uk-align-center" type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer th:replace="fragments/footer::footer"></footer>
+
+    </body>
+</html>
