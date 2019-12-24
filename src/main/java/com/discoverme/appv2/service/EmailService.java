@@ -12,5 +12,5 @@ import com.discoverme.appv2.model.Email;
  * @author Manuel
  */
 public interface EmailService{
-    
+    void save(Email email);
 }

@@ -6,6 +6,9 @@ import com.discoverme.appv2.model.Usuario;
 import com.discoverme.appv2.repository.EmailRepository;
 import com.discoverme.appv2.repository.RolRepository;
 import com.discoverme.appv2.repository.UsuarioRepository;
+import com.discoverme.appv2.service.EmailService;
+import com.discoverme.appv2.service.RolService;
+import com.discoverme.appv2.service.UsuarioService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,13 +22,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class InicioControler {
     
     @Autowired
-    private EmailRepository emailRepository;
+    private EmailService emailService;
     
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
     
     @Autowired
-    private RolRepository rolRepository;
+    private RolService rolService;
 
     @GetMapping(value = "/")
     public ModelAndView index() {
@@ -41,7 +44,7 @@ public class InicioControler {
         modelview.addObject("titulo", "Login");
         Usuario user = new Usuario();
         if (rol != null) {            
-            user = usuarioRepository.findAllByRol(rolRepository.findAllByNombre(rol).get(0)).get(0);
+            user = usuarioService.findAllByRol(rolService.findAllByNombre(rol)).get(0);
         }
         Login login = new Login(user.getId(),user.getPassword());
         modelview.addObject("login", login);
@@ -51,7 +54,7 @@ public class InicioControler {
     @PostMapping(value = "/login")
     public String login(@ModelAttribute("login") Login login,HttpSession session) {
         String redirect = null;
-        Usuario usuario = usuarioRepository.findById(login.getUsuario()).get();
+        Usuario usuario = usuarioService.findById(login.getUsuario());
         if (usuario == null) {
             redirect = "redirect:/errorUser";
         } else if (!usuario.getPassword().equals(login.getPassword())) {
@@ -83,7 +86,7 @@ public class InicioControler {
     public ModelAndView enviarEmail(@ModelAttribute("email") Email email) {
         ModelAndView modelview = new ModelAndView("email");
         modelview.addObject("email", email);
-        emailRepository.save(email);
+        emailService.save(email);
         return modelview;
     }
 }
