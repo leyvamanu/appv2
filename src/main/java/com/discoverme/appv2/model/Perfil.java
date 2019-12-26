@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,9 +31,16 @@ public class Perfil implements Serializable {
     @Column(name = "nombre", length = 30)
     private String nombre;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+//    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany(fetch = FetchType.EAGER)
     @LazyCollection(LazyCollectionOption.TRUE)
     @JoinTable(name = "perfiles_tipos",joinColumns = @JoinColumn(name = "perfil_id"), inverseJoinColumns = @JoinColumn(name = "tipos_id"))
+//    @JoinTable(
+//            name = "perfiles_tipos",
+//            joinColumns = @JoinColumn(name = "perfil_id", nullable = false),
+//            inverseJoinColumns = @JoinColumn(name = "tipos_id", nullable = false)
+//    )
+//    @ManyToMany(cascade = CascadeType.ALL)
     private List<Tipo> tipos = new ArrayList();   
     
     public Perfil() {

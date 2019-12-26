@@ -1,4 +1,4 @@
-<nav th:fragment="nav" class="uk-navbar-container uk-background-muted" uk-navbar uk-sticky="cls-active: uk-navbar-sticky">
+<nav th:fragment="nav-index" class="uk-navbar-container uk-background-muted" uk-navbar uk-sticky="cls-active: uk-navbar-sticky">
     <div class="uk-navbar-left">
         <a class="uk-navbar-item uk-logo logo" href="#inicio" uk-scroll>DiscoverMe</a>
     </div>
@@ -8,7 +8,27 @@
             <li><a href="#datos" uk-scroll>Datos</a></li>
             <li><a href="#demo" uk-scroll>Demo</a></li>
             <li><a href="#contacto" uk-scroll>Contacto</a></li>
-<!--            <li><a th:href="@{/logout}" uk-scroll>Salir</a></li>-->
+        </ul>
+    </div>
+</nav>
+
+<nav th:fragment="nav-huesped" class="uk-navbar-container uk-background-muted" uk-navbar uk-sticky="cls-active: uk-navbar-sticky">
+    <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo logo" href="#inicio" uk-scroll>DiscoverMe</a>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li><a href="#" th:href="@{servicios}">Servicios</a></li>
+            <li><a href="#" th:href="@{ofertas}">Ofertas</a></li>
+            <li>
+                <a href="#" th:text="${#session.getAttribute('usuario').nombre}"></a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="#" th:href="@{/editar}">Editar</a></li>
+                        <li><a href="#" th:href="@{/login?logout}">Salir</a></li>
+                    </ul>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>

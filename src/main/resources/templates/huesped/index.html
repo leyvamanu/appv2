@@ -2,24 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/head::head"></head>
     <body>
-        <nav th:replace="fragments/nav::nav"></nav>
-        <div class="pretty p-switch p-slim">
-            <input type="checkbox" name="switch1" />
-            <div class="state p-success">
-                <label>Fall</label>
+        <nav th:replace="fragments/nav::nav-huesped"></nav>
+        <th:block th:each="tipo : ${tipos}">
+            <div class="pretty p-switch p-slim">
+                <input type="checkbox" name="${tipo.id}" />
+                <div class="state p-success">
+                    <label th:text="${tipo.nombre}"></label>
+                </div>
             </div>
+        </th:block>
+        <div class="uk-position-bottom">
+            <footer th:replace="fragments/footer::footer"></footer>
         </div>
-        <!--        <h1>HUESPED</h1>
-                <p th:text="${#session.getAttribute('usuario').id}"></p>
-                <p th:text="${#session.getAttribute('usuario').nombre}"></p>
-                <p th:text="${#session.getAttribute('usuario').password}"></p>
-                <p th:text="${#session.getAttribute('usuario').rol.nombre}"></p>
-                <form th:action="@{/logout}" method="post">-->
-        <input type="submit" value="Cerrar Sesion"/>
-    </form>
-    <div class="uk-position-bottom">
-        <footer th:replace="fragments/footer::footer"></footer>
-    </div>
-</body>
+    </body>
 </html>
 
