@@ -8,6 +8,9 @@
         <p th:text="${#session.getAttribute('usuario').nombre}"></p>
         <p th:text="${#session.getAttribute('usuario').password}"></p>
         <p th:text="${#session.getAttribute('usuario').rol.nombre}"></p>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Cerrar Sesion"/>
+        </form>
         <div class="uk-position-bottom">
             <footer th:replace="fragments/footer::footer"></footer>
         </div>

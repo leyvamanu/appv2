@@ -2,38 +2,61 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/head::head"></head>
     <body>
-        <div class="uk-card uk-card-default uk-position-center">
-            <div class="uk-card-header uk-background-muted">
-                <div class="uk-width-expand uk-t">
-                    <h1 class="logo uk-heading-medium">DiscoverMe</h1>
+        <div class="uk-section uk-section-muted uk-flex uk-flex-middle uk-animation-fade uk-background-primary" uk-height-viewport>
+            <div class="uk-width-1-1">
+                <div class="uk-container">
+                    <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+                        <div class="uk-width-1-1@m">
+                            <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+                                <div class="uk-card-header uk-background-muted">
+                                    <a class="uk-link-toggle" th:href="@{/}" href="#">
+                                        <h1 class="uk-link-heading uk-heading-medium logo">DiscoverMe</h1>
+                                    </a>
+                                </div>
+                                <form action="#" th:action="@{/login}" method="POST">
+                                    <fieldset class="uk-fieldset">
+                                        <legend class="uk-legend uk-margin-top">Acceso clientes</legend>
+                                        <div class="uk-margin">
+                                            <div class="uk-inline uk-width-1-1">
+                                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                                <input class="uk-input" id="usuario" name="username" type="text" placeholder="Usuario" th:value="${username}" required/>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-inline uk-width-1-1">
+                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                <input class="uk-input" id="password" name="password" type="password" placeholder="Contraseña" th:value="${password}" required/>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit"> Acceder</button>
+                                        </div>
+                                        <div th:if="${param.error}" class="uk-alert-danger" uk-alert>
+                                            <a class="uk-alert-close uk-text-right" uk-close></a>
+                                            <span>Usuario o contraseña invalidos.</span>
+                                        </div>
+                                        <div th:if="${param.logout}" class="uk-alert-success" uk-alert>
+                                            <a class="uk-alert-close uk-text-right" uk-close></a>
+                                            <span>Has salido de la aplicacion.</span>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                                <div class="uk-card-footer uk-background-muted">
+                                    <a href="#" class="uk-button uk-button-text" uk-toggle="target: #modal">Olvidaste tu password?</a> 
+                                    <div id="modal" uk-modal>
+                                        <div class="uk-modal-dialog uk-modal-body">
+                                            <a class="uk-modal-close-default uk-text-right" type="button" uk-close></a>
+                                            <h2 class="uk-modal-title">Restaurar Password</h2>
+                                            <p>Para reiniciar su pasword necesita hablar con recepcion.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="uk-card-body">
-                <form action="#" th:action="@{/login}" th:object="${login}" method="POST">
-                    <fieldset class="uk-fieldset">
-                        <legend class="uk-legend">Acceso clientes</legend>
-                            <div class="uk-margin">
-                                <div class="uk-inline uk-width-1-1">
-                                    <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                    <input class="uk-input" id="usuario" name="usuario" type="text" th:field="*{usuario}" placeholder="Usuario"/>
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <div class="uk-inline uk-width-1-1">
-                                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                    <input class="uk-input" id="password" name="password" type="password" th:field="*{password}" placeholder="Contraseña"/>
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <button class="uk-button uk-button-primary uk-button-large uk-width-1-1" type="submit"> Acceder</button>
-                            </div>
-                    </fieldset>
-                </form>
-            </div>
-            <div class="uk-card-footer uk-background-muted">
-                <a href="#" class="uk-button uk-button-text">Olvidaste tu password?</a>
-            </div>
-        </div>        
+        </div>
         <div class="uk-position-bottom">
             <footer th:replace="fragments/footer::footer"></footer>
         </div>

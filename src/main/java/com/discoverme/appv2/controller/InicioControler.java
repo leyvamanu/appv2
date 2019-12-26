@@ -1,14 +1,11 @@
 package com.discoverme.appv2.controller;
 
 import com.discoverme.appv2.model.Email;
-import com.discoverme.appv2.model.Login;
 import com.discoverme.appv2.model.Usuario;
-import com.discoverme.appv2.repository.EmailRepository;
-import com.discoverme.appv2.repository.RolRepository;
-import com.discoverme.appv2.repository.UsuarioRepository;
 import com.discoverme.appv2.service.EmailService;
 import com.discoverme.appv2.service.RolService;
 import com.discoverme.appv2.service.UsuarioService;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,68 +17,63 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class InicioControler {
-    
+
     @Autowired
     private EmailService emailService;
-    
+
     @Autowired
     private UsuarioService usuarioService;
-    
+
     @Autowired
     private RolService rolService;
 
     @GetMapping(value = "/")
-    public ModelAndView index() {
+    public ModelAndView index(HttpServletRequest request) {
+        System.out.println("USUARIO: " + request.getRemoteUser());
         ModelAndView modelview = new ModelAndView("index");
         modelview.addObject("titulo", "Aumenta la fidelización en tu hotel");
         modelview.addObject("email", new Email());
         return modelview;
     }
-    
-    @GetMapping(value = "/inicio")
-    public ModelAndView inicio(@RequestParam(value = "rol", required = false) String rol) {
+
+    @GetMapping(value = "/login")
+    public ModelAndView login(@RequestParam(value = "rol", required = false) String rol) {
         ModelAndView modelview = new ModelAndView("login");
         modelview.addObject("titulo", "Login");
         Usuario user = new Usuario();
-        if (rol != null) {            
+        if (rol != null) {
             user = usuarioService.findAllByRol(rolService.findAllByNombre(rol)).get(0);
         }
-        Login login = new Login(user.getId(),user.getPassword());
-        modelview.addObject("login", login);
+        modelview.addObject("username", user.getId());
+        modelview.addObject("password", user.getPassword());
         return modelview;
     }
-    
-    @PostMapping(value = "/login")
-    public String login(@ModelAttribute("login") Login login,HttpSession session) {
+
+    @GetMapping(value = "/inicio")
+    public String inicio(HttpSession session, HttpServletRequest request) {
         String redirect = null;
-        Usuario usuario = usuarioService.findById(login.getUsuario());
-        if (usuario == null) {
-            redirect = "redirect:/errorUser";
-        } else if (!usuario.getPassword().equals(login.getPassword())) {
-            redirect = "redirect:/errorPassword";
-        } else {
-            session.setAttribute("usuario", usuario);
-            String rol = usuario.getRol().getNombre();
-            switch (rol) {
-                case "Director":
-                    redirect = "redirect:/director/";
-                    break;
-                case "Recepcionista":
-                    redirect = "redirect:/recepcionista/";
-                    break;
-                case "Camarero":
-                    redirect = "redirect:/camarero/";
-                    break;
-                case "Colaborador":
-                    redirect = "redirect:/colaborador/";
-                    break;
-                case "Huesped":
-                    redirect = "redirect:/huesped/";
-            }
+        Usuario usuario = usuarioService.findById(request.getRemoteUser());
+        session.setAttribute("usuario", usuario);
+        String rol = usuario.getRol().getNombre();
+        switch (rol) {
+            case "Director":
+                redirect = "redirect:/director/";
+                break;
+            case "Recepcionista":
+                redirect = "redirect:/recepcionista/";
+                break;
+            case "Camarero":
+                redirect = "redirect:/camarero/";
+                break;
+            case "Colaborador":
+                redirect = "redirect:/colaborador/";
+                break;
+            case "Huesped":
+                redirect = "redirect:/huesped/";
         }
         return redirect;
     }
-    
+
     @PostMapping(value = "/enviarEmail")
     public ModelAndView enviarEmail(@ModelAttribute("email") Email email) {
         ModelAndView modelview = new ModelAndView("email");
