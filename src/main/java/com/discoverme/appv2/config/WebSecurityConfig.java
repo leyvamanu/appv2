@@ -45,25 +45,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .logoutSuccessUrl("/login?logout");
     }
+    
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
-//    @Bean
-//    public BCryptPasswordEncoder passwordEncoder() {
-//        bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
-//        return bCryptPasswordEncoder;
-//    }
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        bCryptPasswordEncoder = new BCryptPasswordEncoder(4);
+        return bCryptPasswordEncoder;
+    }
+
     @Autowired
     UserDetailsServiceImpl userDetailsService;
-
-    @Bean
-    public PasswordEncoder getPasswordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.userDetailsService(userDetailsService);
-////        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-//    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {

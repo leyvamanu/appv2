@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  * @author Manuel
  */
 @Repository
-public interface PerfilRepositroy extends CrudRepository<Perfil, Long>{
+public interface PerfilRepository extends CrudRepository<Perfil, Long>{
     
 }

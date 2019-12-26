@@ -21,12 +21,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String string) throws UsernameNotFoundException {
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@: "+string);
         Usuario appUser = usuarioRepository.findById(string).get();
         List grantList = new ArrayList();
         GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(appUser.getRol().getNombre());
         grantList.add(grantedAuthority);
-        System.out.println("ROL: "+grantList);
         UserDetails user = (UserDetails) new User(appUser.getId(), appUser.getPassword(), grantList);
         return user;
     }

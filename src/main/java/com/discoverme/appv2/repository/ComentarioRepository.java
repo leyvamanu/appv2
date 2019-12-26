@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
  * @author Manuel
  */
 @Repository
-public interface ComentarioiRepository extends CrudRepository<Comentario, Long> {
+public interface ComentarioRepository extends CrudRepository<Comentario, Long> {
 
 }

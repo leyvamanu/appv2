@@ -29,7 +29,6 @@ public class InicioControler {
 
     @GetMapping(value = "/")
     public ModelAndView index(HttpServletRequest request) {
-        System.out.println("USUARIO: " + request.getRemoteUser());
         ModelAndView modelview = new ModelAndView("index");
         modelview.addObject("titulo", "Aumenta la fidelización en tu hotel");
         modelview.addObject("email", new Email());
