@@ -3,14 +3,43 @@
     <head th:replace="fragments/head::head"></head>
     <body>
         <nav th:replace="fragments/nav::nav-huesped"></nav>
-        <th:block th:each="tipo : ${tipos}">
-            <div class="pretty p-switch p-slim">
-                <input type="checkbox" name="${tipo.id}" />
-                <div class="state p-success">
-                    <label th:text="${tipo.nombre}"></label>
+        <section class="uk-section uk-section-muted">
+            <div class="uk-container" uk-grid>
+                <div class="uk-width-1-4">
+                    
+                    <div class="uk-margin">
+                        <input class="uk-range" type="range" value="2" min="0" max="10" step="0.1">
+                    </div>
+                    <div class="uk-margin">
+                        <div uk-form-custom="target: > * > span:first-child">
+                            <select>
+                                <option value="">Ordenar por...</option>
+                                <option value="1">Distancia</option>
+                                <option value="2">Precio</option>
+                                <option value="3">Puntuacion</option>
+                            </select>
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">
+                                <span></span>
+                                <span uk-icon="icon: chevron-down"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="uk-width-3-4">
+                        <th:block th:each="tipo : ${tipos}">
+                            <div class="pretty p-switch p-slim">
+                                <input type="checkbox" name="${tipo.id}" />
+                                <div class="state p-success">
+                                    <label th:text="${tipo.nombre}"></label>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
                 </div>
+                <th:block th:each="experiencia : ${experiencias}">
+                    <label th:text="${experiencia.nombre}"></label>
+                </th:block>
             </div>
-        </th:block>
+        </section>
         <div class="uk-position-bottom">
             <footer th:replace="fragments/footer::footer"></footer>
         </div>

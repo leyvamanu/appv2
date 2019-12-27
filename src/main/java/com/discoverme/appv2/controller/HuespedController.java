@@ -1,10 +1,7 @@
 package com.discoverme.appv2.controller;
 
-import com.discoverme.appv2.model.Tipo;
 import com.discoverme.appv2.model.Usuario;
-import com.discoverme.appv2.service.PerfilService;
-import com.discoverme.appv2.service.TipoService;
-import java.util.List;
+import com.discoverme.appv2.service.ExperienciaService;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,16 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class HuespedController {
 
     @Autowired
-    TipoService tipoService;
-
-    @Autowired
-    PerfilService perfilService;
+    ExperienciaService experienciaService;
 
     @GetMapping(value = "/")
     public ModelAndView index(HttpSession session) {
         ModelAndView modelview = new ModelAndView("huesped/index");
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         modelview.addObject("tipos", usuario.getPerfil().getTipos());
+        modelview.addObject("experiencias", experienciaService.findAll());
         return modelview;
     }
 

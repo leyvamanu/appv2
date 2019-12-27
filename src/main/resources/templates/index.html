@@ -7,10 +7,12 @@
         <!-- Servicios -->
         <section class="uk-section uk-section-default uk-padding-medium-top uk-padding-medium-bottom" id="servicios">
             <div class="uk-container uk-text-center">
-                <h2 class="uk-text-bold">Servicios</h2>
-                <h3 class="uk-text-italic uk-text-muted">Con nuestra aplicación, conseguirás aumentar la fidelización de tu cliente a través de nuestros servicios.</h3>
+                <div uk-scrollspy="cls: uk-animation-slide-top; repeat: true">
+                    <h2 class="uk-text-bold">Servicios</h2>
+                    <h3 class="uk-text-italic uk-text-muted">Con nuestra aplicación, conseguirás aumentar la fidelización de tu cliente a través de nuestros servicios.</h3>
+                </div>
                 <div class="uk-child-width-1-3" uk-grid>
-                    <div>
+                    <div uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
                             <i class="fas fa-umbrella-beach fa-stack-1x fa-inverse"></i>
@@ -18,7 +20,7 @@
                         <h4 class="uk-text-bold">Experiencias</h4>
                         <p class="uk-text-muted">Muestra a tu huésped todo lo que puede descubrir en tu ciudad dándole la información que realmente creas oportuna.</p>
                     </div>
-                    <div>
+                    <div uk-scrollspy="cls: uk-animation-slide-bottom; repeat: true">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
                             <i class="fas fa-ticket-alt fa-stack-1x fa-inverse"></i>
@@ -26,7 +28,7 @@
                         <h4 class="uk-text-bold">Ventas</h4>
                         <p class="uk-text-muted">Aumenta las ventas a través de la aplicación con técnicas de up-selling y cross-selling.</p>
                     </div>
-                    <div>
+                    <div uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
                         <span class="fa-stack fa-4x">
                             <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
                             <i class="far fa-handshake fa-stack-1x fa-inverse"></i>
@@ -75,53 +77,63 @@
                 <div class="uk-child-width-1-3" uk-grid>
                     <div class="uk-text-center">
                         <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                            <a th:href="@{/login?rol=camarero}">
+                            <a th:href="@{/login}">
                                 <img th:src="@{/image/camarero.jpg}" alt="camarero">
                                 <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
-                                    <p class="uk-h4 uk-margin-remove ">Camarero</p>
+                                    <p class="uk-h4 uk-margin-remove ">Usuario: 44444444X</p>
+                                    <p class="uk-h4 uk-margin-remove ">Contraseña: 12345</p>
                                 </div>
                             </a>
                         </div>
+                        <p>Camarero</p>
                     </div>
                     <div class="uk-text-center">
                         <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                            <a th:href="@{/login?rol=colaborador}">
+                            <a th:href="@{/login}">
                                 <img th:src="@{/image/colaborador.jpg}" alt="colaborador">
                                 <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
-                                    <p class="uk-h4 uk-margin-remove">Colaborador</p>
+                                    <p class="uk-h4 uk-margin-remove ">Usuario: 88888888X</p>
+                                    <p class="uk-h4 uk-margin-remove ">Contraseña: 12345</p>
                                 </div>
                             </a>
                         </div>
+                        <p>Colaborador</p>
                     </div>
                     <div class="uk-text-center">
                         <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                            <a th:href="@{/login?rol=director}">
+                            <a th:href="@{/login}">
                                 <img th:src="@{/image/director.jpg}" alt="director">
                                 <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
-                                    <p class="uk-h4 uk-margin-remove">Director</p>
+                                    <p class="uk-h4 uk-margin-remove ">Usuario: 77777777X</p>
+                                    <p class="uk-h4 uk-margin-remove ">Contraseña: 12345</p>
                                 </div>
                             </a>
                         </div>
+                        <p>Director</p>
                     </div>
                     <div class="uk-text-center">
                         <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                            <a th:href="@{/login?rol=huesped}">
+                            <a th:href="@{/login}">
                                 <img th:src="@{/image/huesped.jpg}" alt="huesped">
                                 <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
-                                    <p class="uk-h4 uk-margin-remove">Huesped</p>
+                                    <p class="uk-h4 uk-margin-remove ">Usuario: 00000000X</p>
+                                    <p class="uk-h4 uk-margin-remove ">Contraseña: 12345</p>
                                 </div>
                             </a>
                         </div>
+                        <p>Huesped</p>
                     </div>
                     <div class="uk-text-center">
                         <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                            <a th:href="@{/login?rol=recepcionista}">
+                            <a th:href="@{/login}">
                                 <img th:src="@{/image/recepcionista.jpg}" alt="recepcionista">
                                 <div class="uk-transition-fade uk-position-cover uk-position-small uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle">
-                                    <p class="uk-h4 uk-margin-remove">Recepcionista</p>
+                                    <p class="uk-h4 uk-margin-remove ">Usuario: 33333333X</p>
+                                    <p class="uk-h4 uk-margin-remove ">Contraseña: 12345</p>
                                 </div>
                             </a>
                         </div>
+                        <p>Recepcionista</p>
                     </div>
                     <div class="uk-text-center">
                         <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
@@ -132,6 +144,7 @@
                                 </div>
                             </a>
                         </div>
+                        <p>DiscoverMe</p>
                     </div>
                 </div> 
             </div>
