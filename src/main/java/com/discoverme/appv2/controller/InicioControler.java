@@ -3,7 +3,6 @@ package com.discoverme.appv2.controller;
 import com.discoverme.appv2.model.Email;
 import com.discoverme.appv2.model.Usuario;
 import com.discoverme.appv2.service.EmailService;
-import com.discoverme.appv2.service.RolService;
 import com.discoverme.appv2.service.UsuarioService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -24,9 +23,6 @@ public class InicioControler {
     @Autowired
     private UsuarioService usuarioService;
 
-    @Autowired
-    private RolService rolService;
-
     @GetMapping(value = "/")
     public ModelAndView index(HttpServletRequest request) {
         ModelAndView modelview = new ModelAndView("index");
@@ -39,12 +35,6 @@ public class InicioControler {
     public ModelAndView login(@RequestParam(value = "rol", required = false) String rol) {
         ModelAndView modelview = new ModelAndView("login");
         modelview.addObject("titulo", "Login");
-        Usuario user = new Usuario();
-        if (rol != null) {
-            user = usuarioService.findAllByRol(rolService.findAllByNombre(rol)).get(0);
-        }
-        modelview.addObject("username", user.getId());
-        modelview.addObject("password", user.getPassword());
         return modelview;
     }
 
