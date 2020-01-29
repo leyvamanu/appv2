@@ -18,6 +18,7 @@
     </div>
     <div class="uk-navbar-right">
         <ul class="uk-navbar-nav">
+            <li><p th:text="${#session.getAttribute('usuario').rol.nombre}"></p></li>
             <li><a href="#" th:href="@{servicios}">Servicios</a></li>
             <li><a href="#" th:href="@{ofertas}">Ofertas</a></li>
             <li>
@@ -25,7 +26,115 @@
                 <div class="uk-navbar-dropdown">
                     <ul class="uk-nav uk-navbar-dropdown-nav">
                         <li><a href="#" th:href="@{/editar}">Editar</a></li>
-                        <li><a href="#" th:href="@{/login?logout}">Salir</a></li>
+                        <li>        
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Salir"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav th:fragment="nav-camarero" class="uk-navbar-container uk-background-muted" uk-navbar uk-sticky="cls-active: uk-navbar-sticky">
+    <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo logo" href="#inicio" uk-scroll>DiscoverMe</a>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li><p th:text="${#session.getAttribute('usuario').rol.nombre}"></p></li>
+            <li><a href="#" th:href="@{servicios}">Servicios</a></li>
+            <li><a href="#" th:href="@{ofertas}">Ofertas</a></li>
+            <li>
+                <a href="#" th:text="${#session.getAttribute('usuario').nombre}"></a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="#" th:href="@{/editar}">Editar</a></li>
+                        <li>        
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Salir"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav th:fragment="nav-director" class="uk-navbar-container uk-background-muted" uk-navbar uk-sticky="cls-active: uk-navbar-sticky">
+    <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo logo" href="#inicio" uk-scroll>DiscoverMe</a>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li><p th:text="${#session.getAttribute('usuario').rol.nombre}"></p></li>
+            <li><a href="#" th:href="@{servicios}">Servicios</a></li>
+            <li><a href="#" th:href="@{ofertas}">Ofertas</a></li>
+            <li>
+                <a href="#" th:text="${#session.getAttribute('usuario').nombre}"></a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="#" th:href="@{/editar}">Editar</a></li>
+                        <li>        
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Salir"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav th:fragment="nav-colaborador" class="uk-navbar-container uk-background-muted" uk-navbar uk-sticky="cls-active: uk-navbar-sticky">
+    <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo logo" href="#inicio" uk-scroll>DiscoverMe</a>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li><p th:text="${#session.getAttribute('usuario').rol.nombre}"></p></li>
+            <li><a href="#" th:href="@{servicios}">Servicios</a></li>
+            <li><a href="#" th:href="@{ofertas}">Ofertas</a></li>
+            <li>
+                <a href="#" th:text="${#session.getAttribute('usuario').nombre}"></a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="#" th:href="@{/editar}">Editar</a></li>
+                        <li>        
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Salir"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav th:fragment="nav-recepcionista" class="uk-navbar-container uk-background-muted" uk-navbar uk-sticky="cls-active: uk-navbar-sticky">
+    <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo logo" href="#inicio" uk-scroll>DiscoverMe</a>
+    </div>
+    <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+            <li><p th:text="${#session.getAttribute('usuario').rol.nombre}"></p></li>
+            <li><a href="#" th:href="@{servicios}">Servicios</a></li>
+            <li><a href="#" th:href="@{ofertas}">Ofertas</a></li>
+            <li>
+                <a href="#" th:text="${#session.getAttribute('usuario').nombre}"></a>
+                <div class="uk-navbar-dropdown">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li><a href="#" th:href="@{/editar}">Editar</a></li>
+                        <li>        
+                            <form th:action="@{/logout}" method="post">
+                                <input type="submit" value="Salir"/>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </li>

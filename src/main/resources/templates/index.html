@@ -2,7 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
     <head  th:replace="fragments/head::head"></head>
     <body>
-        <header th:replace="fragments/header::header"></header>
+        <header th:fragment="header" id="inicio">
+            <nav th:replace="fragments/nav::nav-index"></nav>
+            <div class="uk-background-cover uk-flex img-header uk-height-viewport" uk-parallax="bgy: 200">
+                <div class="uk-width-1-2 uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                    <div class="uk-light">
+                        <h1 class="uk-heading-medium uk-text-bold">Una aplicación,<br/>infinitas posibilidades</h1>
+                        <h2>Conoce los gustos de tus huéspedes y hazle vivir una experiencia única!</h2>
+                    </div>
+                    <a href="#servicios" class="uk-button uk-button-primary uk-button-large" uk-scroll>Saber más...</a>
+                </div>
+            </div>
+        </header>
 
         <!-- Servicios -->
         <section class="uk-section uk-section-default uk-padding-medium-top uk-padding-medium-bottom uk-height-viewport" id="servicios">
@@ -65,10 +76,10 @@
                         <div>
                             <div>
                                 <div class="uk-card uk-card-secondary uk-card-body">
-                            <span class="fa-stack fa-4x">   
-                                <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
-                                <i class="fas fa-download fa-stack-1x fa-inverse"></i>
-                            </span>
+                                    <span class="fa-stack fa-4x">   
+                                        <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
+                                        <i class="fas fa-download fa-stack-1x fa-inverse"></i>
+                                    </span>
                                     <h3 class="uk-card-title">324244</h3>
                                     <h4 class="uk-text-bold">Apps descargadas</h4>
                                     <p>Número de descargas hechas por los huéspedes.</p>
@@ -78,10 +89,10 @@
                         <div>
                             <div>
                                 <div class="uk-card uk-card-secondary uk-card-body">
-                            <span class="fa-stack fa-4x">
-                                <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
-                                <i class="fas fa-users fa-stack-1x fa-inverse"></i>
-                            </span>
+                                    <span class="fa-stack fa-4x">
+                                        <i class="fas fa-circle fa-stack-2x icon-servicos"></i>
+                                        <i class="fas fa-users fa-stack-1x fa-inverse"></i>
+                                    </span>
                                     <h3 class="uk-card-title">123</h3>
                                     <h4 class="uk-text-bold">Colaboradores</h4>
                                     <p>Total de colaboradores que se benefician de nuestros servicios.</p>

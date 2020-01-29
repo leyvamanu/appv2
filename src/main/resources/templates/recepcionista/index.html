@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head th:replace="fragments/head::head"></head>
     <body>
-        <nav th:replace="fragments/nav::nav"></nav>
+        <nav th:replace="fragments/nav::nav-recepcionista"></nav>
         <h1>RECEPCIONISTA</h1>
         <p th:text="${#session.getAttribute('usuario').id}"></p>
         <p th:text="${#session.getAttribute('usuario').nombre}"></p>
