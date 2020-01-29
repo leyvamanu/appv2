@@ -24,7 +24,7 @@ public class InicioControler {
     private UsuarioService usuarioService;
 
     @GetMapping(value = "/")
-    public ModelAndView index(HttpServletRequest request) {
+    public ModelAndView index(HttpServletRequest request, HttpSession session) {
         ModelAndView modelview = new ModelAndView("index");
         modelview.addObject("titulo", "Aumenta la fidelización en tu hotel");
         modelview.addObject("email", new Email());
