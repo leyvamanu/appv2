@@ -77,15 +77,18 @@ public class Experiencia implements Serializable {
     @JoinTable(name = "experiencias_tipos", joinColumns = @JoinColumn(name = "experiencia_id"), inverseJoinColumns = @JoinColumn(name = "tipos_id"))
     private List<Tipo> tipos = new ArrayList();
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(targetEntity=Comentario.class, mappedBy="experiencia",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Comentario> comentarios;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
+    @OneToMany(targetEntity=Oferta.class, mappedBy="experiencia",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Oferta> ofertas;
     
+    @OneToMany(targetEntity=Foto.class, mappedBy="experiencia",cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Foto> fotos;
+    
     public Experiencia() {
-    }
 
+    }
     
     public Integer getId() {
         return id;
@@ -205,6 +208,14 @@ public class Experiencia implements Serializable {
 
     public void setOfertas(List<Oferta> ofertas) {
         this.ofertas = ofertas;
+    }
+
+    public List<Foto> getFotos() {
+        return fotos;
+    }
+
+    public void setFotos(List<Foto> fotos) {
+        this.fotos = fotos;
     }
 
 }
