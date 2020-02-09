@@ -358,26 +358,6 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   CONSTRAINT `FKqg86cniw2qt70wtaqmq7nmipl` FOREIGN KEY (`experiencia_id`) REFERENCES `experiencias` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla discoverme.comentarios: ~0 rows (aproximadamente)
-/*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
-INSERT INTO `comentarios` (`id`, `comentario`, `fecha`, `puntos`, `titulo`, `experiencia_id`, `usuario_id`) VALUES
-  (1, 'Me lo pase genial es flipante ver como se parecen las figuras a los personajes reales, 100% recomendable', '2019-03-13', 4, 'Me ha gustado mucho.', 1, '00000000X'),
-  (2, 'Muy buen ambiente copas, copas no demasiado caras, gran sala llena de billares y futbolines, volvere!', '2019-03-13', 5, 'El experiencia es perfecto.', 2, '00000000X'),
-  (3, 'Demasiado ruidoso, mesas sucias donde te quedas pegado, no creo que vuelva', '2019-03-13', 2, 'No me ha gustado demasiado.', 2, '11111111X'),
-  (4, 'El lugar esta bien, pero mejoraria varias cosas', '2019-03-13', 3, 'No esta mal, pero puede mejorar.', 2, '77777777X'),
-  (5, 'El sitio es perfecto', '2019-03-13', 5, 'El sitio es perfecto.', 5, '00000000X'),
-  (6, 'El sitio no es de mi agrado', '2019-03-13', 1, 'No me ha gustado.', 5, '11111111X'),
-  (7, 'El lugar esta bien, pero mejoraria varias cosas', '2019-03-13', 3, 'No esta mal, pero puede mejorar.', 5, '77777777X'),
-  (8, 'El sitio es perfecto', '2019-03-13', 5, 'El sitio es perfecto.', 6, '00000000X'),
-  (9, 'El sitio no es de mi agrado', '2019-03-13', 1, 'No me ha gustado.', 6, '11111111X'),
-  (10, 'El lugar esta bien, pero mejoraria varias cosas', '2019-03-13', 3, 'No esta mal, pero puede mejorar.', 6, '77777777X');
-/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
-
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-
-
 -- Volcando estructura para disparador discoverme.update_puntuacion_delete_comentario
 DROP TRIGGER IF EXISTS `update_puntuacion_delete_comentario`;
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
@@ -401,3 +381,35 @@ DELIMITER //
 CREATE TRIGGER `update_puntuacion_update_comentario` AFTER UPDATE ON `comentarios` FOR EACH ROW UPDATE experiencias SET puntuacion = (SELECT avg(puntos) FROM comentarios WHERE experiencia_id = NEW.experiencia_id) WHERE id = NEW.experiencia_id//
 DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
+
+-- Volcando datos para la tabla discoverme.comentarios: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
+INSERT INTO `comentarios` (`id`, `comentario`, `fecha`, `puntos`, `titulo`, `experiencia_id`, `usuario_id`) VALUES
+  (null, 'Me lo pase genial es flipante ver como se parecen las figuras a los personajes reales, 100% recomendable', '2019-03-13', 4, 'Me ha gustado mucho.', 1, '00000000X'),
+  (null, 'Muy buen ambiente copas, copas no demasiado caras, gran sala llena de billares y futbolines, volvere!', '2019-03-13', 5, 'El experiencia es perfecto.', 2, '00000000X'),
+  (null, 'Demasiado ruidoso, mesas sucias donde te quedas pegado, no creo que vuelva', '2019-03-13', 2, 'No me ha gustado demasiado.', 2, '11111111X'),
+  (null, 'El lugar esta bien, pero mejoraria varias cosas', '2019-03-13', 3, 'No esta mal, pero puede mejorar.', 2, '77777777X'),
+  (null, 'El sitio es perfecto', '2019-03-13', 5, 'El sitio es perfecto.', 5, '00000000X'),
+  (null, 'El sitio no es de mi agrado', '2019-03-13', 1, 'No me ha gustado.', 5, '11111111X'),
+  (null, 'El lugar esta bien, pero mejoraria varias cosas', '2019-03-13', 3, 'No esta mal, pero puede mejorar.', 5, '77777777X'),
+  (null, 'El sitio es perfecto', '2019-03-13', 5, 'El sitio es perfecto.', 6, '00000000X'),
+  (null, 'El sitio no es de mi agrado', '2019-03-13', 1, 'No me ha gustado.', 6, '11111111X'),
+  (null, 'El lugar esta bien, pero mejoraria varias cosas', '2019-03-13', 3, 'No esta mal, pero puede mejorar.', 6, '77777777X');
+INSERT INTO `comentarios` (`id`, `titulo`, `comentario`, `puntos`, `experiencia_id`, `usuario_id`, `fecha`) VALUES
+  (null, 'El sitio es perfecto.','El sitio es perfecto',5,7,'00000000X','2019-03-13'),
+  (null, 'No me ha gustado.','El sitio no es de mi agrado',1,7,'11111111X','2019-03-13'),
+  (null, 'No esta mal, pero puede mejorar.','El lugar esta bien, pero mejoraria varias cosas',3,7,'77777777X','2019-03-13'),
+  (null, 'El sitio es perfecto.','El sitio es perfecto',5,8,'00000000X','2019-03-13'),
+  (null, 'No me ha gustado.','El sitio no es de mi agrado',1,8,'11111111X','2019-03-13'),
+  (null, 'No esta mal, pero puede mejorar.','El lugar esta bien, pero mejoraria varias cosas',3,8,'77777777X','2019-03-13'),
+  (null, 'El sitio es perfecto.','El sitio es perfecto',5,9,'00000000X','2019-03-13'),
+  (null, 'No me ha gustado.','El sitio no es de mi agrado',1,9,'11111111X','2019-03-13'),
+  (null, 'No esta mal, pero puede mejorar.','El lugar esta bien, pero mejoraria varias cosas',3,9,'77777777X','2019-03-13'),
+  (null, 'El sitio es perfecto.','El sitio es perfecto',5,10,'00000000X','2019-03-13'),
+  (null, 'No me ha gustado.','El sitio no es de mi agrado',1,10,'11111111X','2019-03-13'),
+  (null, 'No esta mal, pero puede mejorar.','El lugar esta bien, pero mejoraria varias cosas',3,10,'77777777X','2019-03-13');
+/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
+
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
