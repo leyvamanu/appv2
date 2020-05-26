@@ -5,6 +5,7 @@ import com.discoverme.appv2.model.Usuario;
 import java.util.List;
 
 public interface UsuarioService {
+    List<Usuario> findAll();
     List<Usuario> findAllByRol(Rol rol);
     Usuario findById(String id);
 }

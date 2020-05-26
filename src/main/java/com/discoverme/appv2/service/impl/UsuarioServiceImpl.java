@@ -7,12 +7,19 @@ import com.discoverme.appv2.service.UsuarioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
     
     @Autowired
     UsuarioRepository usuarioRepository;
+    
+    @Override
+    @Transactional(readOnly = true)
+    public List<Usuario> findAll() {
+        return (List<Usuario>) usuarioRepository.findAll();
+    }
     
     @Override
     public List<Usuario> findAllByRol(Rol rol) {

@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/", "/index","/enviarEmail").permitAll()
+                .antMatchers("/", "/index","/enviarEmail","/api/*").permitAll()
                 .antMatchers("/director/*").hasAuthority("Director")
                 .antMatchers("/huesped/*").hasAuthority("Huesped")
                 .antMatchers("/colaborador/*").hasAuthority("Colaborador")
